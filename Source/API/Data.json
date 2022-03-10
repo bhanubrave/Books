@@ -1,0 +1,203 @@
+{
+  "count": 22,
+  "entries": [
+    {
+      "API": "A Bíblia Digital",
+      "Description": "Do not worry about managing the multiple versions of the Bible",
+      "Auth": "apiKey",
+      "HTTPS": true,
+      "Cors": "no",
+      "Link": "https://www.abibliadigital.com.br/en",
+      "Category": "Books"
+    },
+    {
+      "API": "Bhagavad Gita",
+      "Description": "Open Source Shrimad Bhagavad Gita API including 21+ authors translation in Sanskrit/English/Hindi",
+      "Auth": "apiKey",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://docs.bhagavadgitaapi.in",
+      "Category": "Books"
+    },
+    {
+      "API": "Bhagavad Gita",
+      "Description": "Bhagavad Gita text",
+      "Auth": "OAuth",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://bhagavadgita.io/api",
+      "Category": "Books"
+    },
+    {
+      "API": "Bhagavad Gita telugu",
+      "Description": "Bhagavad Gita API in telugu and odia languages",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://gita-api.vercel.app",
+      "Category": "Books"
+    },
+    {
+      "API": "Bible-api",
+      "Description": "Free Bible API with multiple languages",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://bible-api.com/",
+      "Category": "Books"
+    },
+    {
+      "API": "Crossref Metadata Search",
+      "Description": "Books \u0026 Articles Metadata",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "unknown",
+      "Link": "https://github.com/CrossRef/rest-api-doc",
+      "Category": "Books"
+    },
+    {
+      "API": "Ganjoor",
+      "Description": "Classic Persian poetry works including access to related manuscripts, recitations and music tracks",
+      "Auth": "OAuth",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://api.ganjoor.net",
+      "Category": "Books"
+    },
+    {
+      "API": "Google Books",
+      "Description": "Books",
+      "Auth": "OAuth",
+      "HTTPS": true,
+      "Cors": "unknown",
+      "Link": "https://developers.google.com/books/",
+      "Category": "Books"
+    },
+    {
+      "API": "GurbaniNow",
+      "Description": "Fast and Accurate Gurbani RESTful API",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "unknown",
+      "Link": "https://github.com/GurbaniNow/api",
+      "Category": "Books"
+    },
+    {
+      "API": "Gutendex",
+      "Description": "Web-API for fetching data from Project Gutenberg Books Library",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "unknown",
+      "Link": "https://gutendex.com/",
+      "Category": "Books"
+    },
+    {
+      "API": "Open Library",
+      "Description": "Books, book covers and related data",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "no",
+      "Link": "https://openlibrary.org/developers/api",
+      "Category": "Books"
+    },
+    {
+      "API": "Penguin Publishing",
+      "Description": "Books, book covers and related data",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "http://www.penguinrandomhouse.biz/webservices/rest/",
+      "Category": "Books"
+    },
+    {
+      "API": "PoetryDB",
+      "Description": "Enables you to get instant data from our vast poetry collection",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://github.com/thundercomb/poetrydb#readme",
+      "Category": "Books"
+    },
+    {
+      "API": "Quran",
+      "Description": "RESTful Quran API with multiple languages",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://quran.api-docs.io/",
+      "Category": "Books"
+    },
+    {
+      "API": "Quran Cloud",
+      "Description": "A RESTful Quran API to retrieve an Ayah, Surah, Juz or the entire Holy Quran",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://alquran.cloud/api",
+      "Category": "Books"
+    },
+    {
+      "API": "Quran-api",
+      "Description": "Free Quran API Service with 90+ different languages and 400+ translations",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://github.com/fawazahmed0/quran-api#readme",
+      "Category": "Books"
+    },
+    {
+      "API": "Rig Veda",
+      "Description": "Gods and poets, their categories, and the verse meters, with the mandal and sukta number",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "unknown",
+      "Link": "https://aninditabasu.github.io/indica/html/rv.html",
+      "Category": "Books"
+    },
+    {
+      "API": "The Bible",
+      "Description": "Everything you need from the Bible in one discoverable place",
+      "Auth": "apiKey",
+      "HTTPS": true,
+      "Cors": "unknown",
+      "Link": "https://docs.api.bible",
+      "Category": "Books"
+    },
+    {
+      "API": "Thirukkural",
+      "Description": "1330 Thirukkural poems and explanation in Tamil and English",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://api-thirukkural.web.app/",
+      "Category": "Books"
+    },
+    {
+      "API": "Vedic Society",
+      "Description": "Descriptions of all nouns (names, places, animals, things) from vedic literature",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "unknown",
+      "Link": "https://aninditabasu.github.io/indica/html/vs.html",
+      "Category": "Books"
+    },
+    {
+      "API": "Wizard World",
+      "Description": "Get information from the Harry Potter universe",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "yes",
+      "Link": "https://wizard-world-api.herokuapp.com/swagger/index.html",
+      "Category": "Books"
+    },
+    {
+      "API": "Wolne Lektury",
+      "Description": "API for obtaining information about e-books available on the WolneLektury.pl website",
+      "Auth": "",
+      "HTTPS": true,
+      "Cors": "unknown",
+      "Link": "https://wolnelektury.pl/api/",
+      "Category": "Books"
+    }
+  ]
+}
