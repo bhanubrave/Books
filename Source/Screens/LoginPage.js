@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
-import { View, StyleSheet, Alert} from 'react-native';
+import { View, StyleSheet, Alert, Image} from 'react-native';
 import ListOfBooks from './ListOfBooks';
-import {TextInput, Button, Appbar, Provider as PaperProvider} from 'react-native-paper';
+import {TextInput, Button, Appbar, Provider as PaperProvider, Card} from 'react-native-paper';
 
 const LoginPage = ({navigation}) => {
   const [text, onChangeText] = useState('');
   const [password, setPassword] = useState('');
   const [secure, setSecure] = useState(true);
   
-  const visible = () => {
-    setSecure(false);
-  }
+
   const id = () => {
     if (text !== 'bhanu@gmail.com') {
       Alert.alert('enter valid mail id');
@@ -25,7 +23,10 @@ const LoginPage = ({navigation}) => {
     <Appbar.Header>
       <Appbar.Content title="LogIn"  />
     </Appbar.Header>
-    <View style={styles.view}>
+  
+    <View  style={styles.view}>
+    <Image source={require('../../Assets/LogoMain2.png')} resizeMode='contain'
+    style={styles.image} />
       <TextInput
         style={styles.input}
         mode="outlined"
@@ -38,9 +39,10 @@ const LoginPage = ({navigation}) => {
         mode="outlined"
         label="Password"
         onChangeText={setPassword}
-        secureTextEntry={secure}
-        right={<TextInput.Icon name="eye" onPress={visible} />}
+        secureTextEntry={secure ? true : false}
+        right={<TextInput.Icon name={secure ? 'eye-off-outline' : 'eye-outline'}  onPress={ () => setSecure(!secure)} />}
       />
+     
       <View style={styles.button}>
         <Button mode="contained" onPress={id}>
           LogIn
@@ -57,15 +59,19 @@ const styles = StyleSheet.create({
     margin: 10,
     color: 'blue'
   },
+  image:{
+    alignSelf: 'center',
+    width: '80%',
+    height: '30%',
+  },
   title: {
     fontSize: 18,
     color: 'black',
     padding: 10,
   },
   view: {
-    margin: 20,
-    padding: 10,
-    top: 100,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
   },
 button: {
     margin: 20,

@@ -8,11 +8,28 @@ import {
 } from 'react-native';
 import {Button, Appbar, Card, Title, Paragraph} from 'react-native-paper';
 import ListOfBooks from './ListOfBooks';
+import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoder';
 
 const PurchaseScreen = ({route, navigation}) => {
   const [location, setLocation] = useState([]);
   const [indicator, setIndicator] = useState(false);
+
+  const geoLocation = () => {
+    if (hasLocationPermission) {
+      Geolocation.getCurrentPosition(
+        position => {
+          console.log(position);
+        },
+        // error => {
+        //   // See error code charts below.
+        //   console.log(error.code, error.message);
+        // },
+        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      );
+    }
+  };
+  
 
   const Hyderabad = {
     lat: 17.385044,
@@ -22,7 +39,7 @@ const PurchaseScreen = ({route, navigation}) => {
   const position = async () => {
     await Geocoder.geocodePosition(Hyderabad)
       .then(res => {
-        console.log(res);
+        // console.log(res);
       })
       .catch(err => console.log(err));
   };
@@ -37,7 +54,7 @@ const PurchaseScreen = ({route, navigation}) => {
       .then(res => {
         const add = res;
         setLocation(add);
-        console.log(res);
+        // console.log(res);
       })
       .catch(err => console.log(err));
     setIndicator(false);
@@ -46,6 +63,7 @@ const PurchaseScreen = ({route, navigation}) => {
   useEffect(() => {
     address();
   }, []);
+
 
   const id = route.params.id;
   const API = route.params.API;
@@ -145,32 +163,32 @@ const styles = StyleSheet.create({
 
 export default PurchaseScreen;
 
-{
-  /* <KeyboardAvoidingView>
-        <Text style={styles.text}>Address</Text>
-        <TextInput style={styles.input}
-         textContentType={'fullStreetAddress'}
-        defaultValue={'StreetName'}
-        ></TextInput>
-        <TextInput style={styles.input} textContentType={'addressCity'}
-        defaultValue={'City'} />
-        <TextInput style={styles.input} textContentType={'addressState'}
-        defaultValue={'StateName'}/>
-        <TextInput style={styles.input} textContentType={'postalCode'}
-        defaultValue={'PostalCode'} />
-        </KeyboardAvoidingView> */
-}
 
-// import GetLocation from 'react-native-get-location';
+//   /* <KeyboardAvoidingView>
+//         <Text style={styles.text}>Address</Text>
+//         <TextInput style={styles.input}
+//          textContentType={'fullStreetAddress'}
+//         defaultValue={'StreetName'}
+//         ></TextInput>
+//         <TextInput style={styles.input} textContentType={'addressCity'}
+//         defaultValue={'City'} />
+//         <TextInput style={styles.input} textContentType={'addressState'}
+//         defaultValue={'StateName'}/>
+//         <TextInput style={styles.input} textContentType={'postalCode'}
+//         defaultValue={'PostalCode'} />
+//         </KeyboardAvoidingView> */
 
-// GetLocation.getCurrentPosition({
-//   enableHighAccuracy: true,
-//   timeout: 15000,
-// })
-// .then(location => {
-//   console.log(location);
-// })
-// .catch(error => {
-//   const { code, message } = error;
-//   console.warn(code, message);
-// })
+
+// // import GetLocation from 'react-native-get-location';
+
+// // GetLocation.getCurrentPosition({
+// //   enableHighAccuracy: true,
+// //   timeout: 15000,
+// // })
+// // .then(location => {
+// //   console.log(location);
+// // })
+// // .catch(error => {
+// //   const { code, message } = error;
+// //   console.warn(code, message);
+// // })
