@@ -17,14 +17,13 @@ const PurchaseScreen = ({route, navigation}) => {
 
   const geoLocation = () => {
     if (hasLocationPermission) {
-      Geolocation.getCurrentPosition(
+     Geolocation.getCurrentPosition(
         position => {
           console.log(position);
         },
-        // error => {
-        //   // See error code charts below.
-        //   console.log(error.code, error.message);
-        // },
+        error => {
+          console.log(error.code, error.message);
+        },
         {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
       );
     }
@@ -72,11 +71,11 @@ const PurchaseScreen = ({route, navigation}) => {
   // console.log(state);
 
   const [title, setTitle] = useState('Buy');
-  const click = useCallback(() => navigation.navigate(ListOfBooks));
+  const click = () => navigation.pop();
   const press = () => {
     setTitle('Purchased!');
     alert('Ordered Placed Sucessfully!');
-    click();
+       click();
     // state('Purchased!')
   };
 

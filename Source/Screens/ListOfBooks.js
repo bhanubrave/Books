@@ -119,11 +119,12 @@ const ListOfBooks = ({route, navigation}) => {
                       <Card.Actions style={{alignSelf: 'flex-end'}}>
                         <Button
                           mode="contained"
-                          onPress={() =>
+                          onPress={
+                            () =>
                             navigation.navigate('PurchaseScreen',
                                { API: item.API,
                                id: item.Description, 
-                              //  state: {setState}
+                              state: {setState}
                                }
                             )
                           }>
