@@ -68,6 +68,7 @@ const ListOfBooks = ({route, navigation}) => {
         {indicator ? (
           <ActivityIndicator style={styles.indicator} size={'large'} />
         ) : (
+          
           <FlatList
             style={styles.flatlist}
             key={header ? 2 : 1}
@@ -124,7 +125,7 @@ const ListOfBooks = ({route, navigation}) => {
                             navigation.navigate('PurchaseScreen',
                                { API: item.API,
                                id: item.Description, 
-                              state: {setState}
+                              // state: {setState}
                                }
                             )
                           }>

@@ -1,18 +1,23 @@
 import React, {useState} from 'react';
-import { View, StyleSheet, Alert, Image} from 'react-native';
+import { View, StyleSheet, Alert, Image, ImageBackground} from 'react-native';
 import ListOfBooks from './ListOfBooks';
 import {TextInput, Button, Appbar, Provider as PaperProvider, Card} from 'react-native-paper';
+
+
 
 const LoginPage = ({navigation}) => {
   const [text, onChangeText] = useState('');
   const [password, setPassword] = useState('');
   const [secure, setSecure] = useState(true);
-  
+
+  const  mailId =  'bhanu@gmail.com';
+  const passkey = 'bhanu';
+ 
 
   const id = () => {
-    if (text !== 'bhanu@gmail.com') {
+    if (text !== mailId) {
       Alert.alert('enter valid mail id');
-    } else if (password !== 'bhanu') {
+    } else if (password !== passkey ) {
       Alert.alert('enter valid password');
     } else {
       navigation.navigate(ListOfBooks);
@@ -20,11 +25,13 @@ const LoginPage = ({navigation}) => {
   };
 
   return ( <>
+   <ImageBackground source={require('../../Assets/wallpapers-books.png')} 
+  resizeMode='cover' style={styles.cover} >
     <Appbar.Header>
       <Appbar.Content title="LogIn"  />
     </Appbar.Header>
-  
     <View  style={styles.view}>
+   
     <Image source={require('../../Assets/LogoMain2.png')} resizeMode='contain'
     style={styles.image} />
       <TextInput
@@ -48,7 +55,9 @@ const LoginPage = ({navigation}) => {
           LogIn
         </Button>
       </View>
+      
     </View>
+    </ImageBackground>
     </>
   );
 };
@@ -63,6 +72,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '80%',
     height: '30%',
+  },
+  cover:{
+    width: '100%', height: '100%'
   },
   title: {
     fontSize: 18,
