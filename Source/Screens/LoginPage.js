@@ -35,19 +35,27 @@ const LoginPage = ({navigation}) => {
     <Image source={require('../../Assets/LogoMain2.png')} resizeMode='contain'
     style={styles.image} />
       <TextInput
-        style={styles.input}
+       style={styles.input}
         mode="outlined"
         label="Mail-Id"
+        theme={{
+          colors: {
+                text: '#f2575b',
+             }
+       }}
         onChangeText={onChangeText}
-        right={<TextInput.Icon name="gmail"  />}
+        right={<TextInput.Icon name="gmail" color='purple'
+       />}
       />
       <TextInput
         style={styles.input}
         mode="outlined"
         label="Password"
+       
         onChangeText={setPassword}
         secureTextEntry={secure ? true : false}
-        right={<TextInput.Icon name={secure ? 'eye-off-outline' : 'eye-outline'}  onPress={ () => setSecure(!secure)} />}
+        right={<TextInput.Icon name={secure ? 'eye-off-outline' : 'eye-outline'}  onPress={ () => setSecure(!secure)}
+                 color={ secure ? 'purple' : 'red'} />}
       />
      
       <View style={styles.button}>
@@ -66,7 +74,6 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 20,
     margin: 10,
-    color: 'blue'
   },
   image:{
     alignSelf: 'center',
