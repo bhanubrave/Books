@@ -4,6 +4,7 @@ import {
   FlatList,
   Text,
   StyleSheet,
+  ImageBackground,
   ActivityIndicator,
 } from 'react-native';
 import {Button, Appbar, Card, Title, Paragraph} from 'react-native-paper';
@@ -67,6 +68,8 @@ const PurchaseScreen = ({route, navigation}) => {
 
   return (
     <>
+    <ImageBackground source={require('../../Assets/bg1.jpg')} 
+  resizeMode='cover' style={styles.cover} >
       <Appbar.Header>
         <Appbar.BackAction onPress={click} />
         <Appbar.Content title="PurchaseScreen" />
@@ -131,6 +134,7 @@ const PurchaseScreen = ({route, navigation}) => {
           {title}
         </Button>
       </View>
+      </ImageBackground>
     </>
   );
 };
@@ -143,6 +147,9 @@ const styles = StyleSheet.create({
   button: {
     margin: 10,
     paddingHorizontal: 30,
+  },
+  cover:{
+    width: '100%', height: '100%'
   },
 });
 

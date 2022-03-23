@@ -4,7 +4,7 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  TouchableOpacity,
+  ImageBackground,
   ActivityIndicator,
 } from 'react-native';
 import axios from 'axios';
@@ -50,6 +50,8 @@ const ListOfBooks = ({route, navigation}) => {
   return (
      
     <>
+    <ImageBackground source={require('../../Assets/bg1.jpg')} 
+  resizeMode='cover' style={styles.cover} >
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.pop()} />
         <Appbar.Content title="Books" />
@@ -59,7 +61,7 @@ const ListOfBooks = ({route, navigation}) => {
           onValueChange={toggleSwitch}
           activeText={'My Collection'}
           inActiveText={'List of Books'}
-          backgroundInactive={'#008ecc'}
+          backgroundInactive={'#fc6600'}
           switchWidthMultiplier={5}
           value={header}
         />
@@ -141,6 +143,7 @@ const ListOfBooks = ({route, navigation}) => {
         )}
         <Text style={styles.indicator}>{errorMessage}</Text>
       </View>
+      </ImageBackground>
     </>
   );
 };
@@ -163,6 +166,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignSelf: 'center',
+    fontSize: 30,
+    color: '#222021'
   },
   content: {
     flex: 1,
@@ -196,9 +201,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'green',
   },
+  cover:{
+    width: '100%', height: '100%'
+  },
   main: {
     flex: 1,
-    backgroundColor: '#351E10'
   },
 });
 
