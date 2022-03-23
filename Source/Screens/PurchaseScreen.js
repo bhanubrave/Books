@@ -15,6 +15,7 @@ const PurchaseScreen = ({route, navigation}) => {
   const [indicator, setIndicator] = useState(false);
 
 
+
   const Hyderabad = {
     lat: 17.385044,
     lng: 78.486671,
@@ -23,7 +24,7 @@ const PurchaseScreen = ({route, navigation}) => {
   const position = async () => {
     await Geocoder.geocodePosition(Hyderabad)
       .then(res => {
-         //console.log(res);
+        //  console.log(res);
       })
       .catch(err => console.log(err));
   };
@@ -84,7 +85,7 @@ const PurchaseScreen = ({route, navigation}) => {
           </Card.Content>
         </Card>
       </View>
-      <View style={styles.default}>
+       <View style={styles.default}>
         {indicator ? (
           <ActivityIndicator style={styles.indicator} size={'large'} />
         ) : (
@@ -124,7 +125,7 @@ const PurchaseScreen = ({route, navigation}) => {
             }}
           />
         )}
-      </View>
+      </View> 
       <View style={styles.button}>
         <Button mode="contained" onPress={press}>
           {title}

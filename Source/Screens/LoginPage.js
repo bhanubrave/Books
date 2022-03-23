@@ -24,9 +24,9 @@ const LoginPage = ({navigation}) => {
     }
   };
 
-  return ( <>
-   <ImageBackground source={require('../../Assets/wallpapers-books.png')} 
-  resizeMode='cover' style={styles.cover} >
+  return  <>
+   {/* <ImageBackground source={require('../../Assets/wallpapers-books.png')} 
+  resizeMode='cover' style={styles.cover} > */}
     <Appbar.Header>
       <Appbar.Content title="LogIn"  />
     </Appbar.Header>
@@ -40,7 +40,7 @@ const LoginPage = ({navigation}) => {
         label="Mail-Id"
         theme={{
           colors: {
-                text: '#f2575b',
+                text: '#043927',
              }
        }}
         onChangeText={onChangeText}
@@ -51,7 +51,11 @@ const LoginPage = ({navigation}) => {
         style={styles.input}
         mode="outlined"
         label="Password"
-       
+        theme={{
+          colors: {
+                text: '#311432',
+             }
+       }}
         onChangeText={setPassword}
         secureTextEntry={secure ? true : false}
         right={<TextInput.Icon name={secure ? 'eye-off-outline' : 'eye-outline'}  onPress={ () => setSecure(!secure)}
@@ -65,9 +69,8 @@ const LoginPage = ({navigation}) => {
       </View>
       
     </View>
-    </ImageBackground>
+    {/* </ImageBackground> */}
     </>
-  );
 };
 
 const styles = StyleSheet.create({
@@ -91,6 +94,7 @@ const styles = StyleSheet.create({
   view: {
     justifyContent: 'center',
     paddingHorizontal: 20,
+    
   },
 button: {
     margin: 20,

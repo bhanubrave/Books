@@ -59,7 +59,7 @@ const ListOfBooks = ({route, navigation}) => {
           onValueChange={toggleSwitch}
           activeText={'My Collection'}
           inActiveText={'List of Books'}
-          backgroundInactive={'grey'}
+          backgroundInactive={'#008ecc'}
           switchWidthMultiplier={5}
           value={header}
         />
@@ -198,6 +198,7 @@ const styles = StyleSheet.create({
   },
   main: {
     flex: 1,
+    backgroundColor: '#351E10'
   },
 });
 
