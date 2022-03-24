@@ -1,26 +1,42 @@
 import React, {useState} from 'react';
-import { View, StyleSheet, Alert, Image, ImageBackground} from 'react-native';
+import { View, StyleSheet, Image, ImageBackground} from 'react-native';
 import ListOfBooks from './ListOfBooks';
-import {TextInput, Button, Appbar, Provider as PaperProvider, Card} from 'react-native-paper';
+import {TextInput, Button,Text, Appbar} from 'react-native-paper';
 
 
 
 const LoginPage = ({navigation}) => {
-  const [text, onChangeText] = useState('');
-  const [password, setPassword] = useState('');
-  const [secure, setSecure] = useState(true);
 
   const  mailId =  'bhanu@gmail.com';
   const passkey = 'bhanu';
- 
+
+  const [text, onChangeText] = useState('');
+  const [password, setPassword] = useState('');
+  const [secure, setSecure] = useState(true);
+  const [validUser, isValidUser] = useState(true);
+  const [validPassword, isValidPassword] = useState(true);
+  const handleValidUser = (text) =>  {
+    if (text !== mailId) {
+      isValidUser(false);
+    } else {
+      isValidUser(true);  
+    }
+  };
+  const handleValidPassword = (password) =>  {
+    if (password !== passkey) {
+      isValidPassword(false);
+    } else {
+      isValidPassword(true);  
+    }
+  };
 
   const id = () => {
-    if (text !== mailId) {
-      Alert.alert('enter valid mail id');
-    } else if (password !== passkey ) {
-      Alert.alert('enter valid password');
-    } else {
+    if (text == mailId && password == passkey ) {
       navigation.navigate(ListOfBooks);
+    }
+    else{
+      isValidPassword(false);
+      isValidUser(false);
     }
   };
 
@@ -47,7 +63,9 @@ const LoginPage = ({navigation}) => {
         onChangeText={onChangeText}
         right={<TextInput.Icon name="gmail" color='#3bb143'
        />}
+       onEndEditing={(e) => handleValidUser(e.nativeEvent.text) }
       />
+      { validUser ? null : <Text style={styles.error}>Enter Valid UserName</Text> }
       <TextInput
         style={styles.input}
         mode="outlined"
@@ -58,10 +76,14 @@ const LoginPage = ({navigation}) => {
              }
        }}
         onChangeText={setPassword}
+        
         secureTextEntry={secure ? true : false}
         right={<TextInput.Icon name={secure ? 'eye-off-outline' : 'eye-outline'}  onPress={ () => setSecure(!secure)}
                  color={ secure ? '#3bb143' : '#fc6600'} />}
+         onEndEditing={(e) => handleValidPassword(e.nativeEvent.text)}
       />
+      { validPassword ? null : <Text style={styles.error}>Enter Correct Password</Text> }
+     
      
       <View style={styles.button}>
         <Button mode="contained" onPress={id}>
@@ -97,15 +119,19 @@ const styles = StyleSheet.create({
   view: {
     justifyContent: 'center',
     paddingHorizontal: 20,
-    marginVertical: 100,
-  
-    
+    marginVertical: 80,
   },
 button: {
     margin: 20,
     width: 200,
     alignSelf: 'center'
   },
+  error:{
+    color: '#c21807',
+    marginHorizontal: 10,
+    fontSize: 16,
+    fontStyle: 'italic',
+  }
 });
 
 export default LoginPage;

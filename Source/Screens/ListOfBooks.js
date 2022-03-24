@@ -26,7 +26,6 @@ const ListOfBooks = ({route, navigation}) => {
   const [books, setBooks] = useState([]);
   const [state, setState] = useState('BUY');
 
-
   const AllBooks = async () => {
     try {
       setIndicator(true);
@@ -46,103 +45,103 @@ const ListOfBooks = ({route, navigation}) => {
     AllBooks();
   }, []);
 
-
   return (
-     
     <>
-    <ImageBackground source={require('../../Assets/bg1.jpg')} 
-  resizeMode='cover' style={styles.cover} >
-      <Appbar.Header>
-        <Appbar.BackAction onPress={() => navigation.pop()} />
-        <Appbar.Content title="Books" />
-        <Switch
-          trackColor={{false: '#767577', true: '#81b0ff'}}
-          thumbColor={header ? '#f5dd4b' : '#f4f3f4'}
-          onValueChange={toggleSwitch}
-          activeText={'My Collection'}
-          inActiveText={'List of Books'}
-          backgroundInactive={'#fc6600'}
-          switchWidthMultiplier={5}
-          value={header}
-        />
-      </Appbar.Header>
-      <View style={styles.main}>
-        {indicator ? (
-          <ActivityIndicator style={styles.indicator} size={'large'} />
-        ) : (
-          
-          <FlatList
-            style={styles.flatlist}
-            key={header ? 2 : 1}
-            numColumns={header ? 2 : 1}
-            data={books.entries}
-            showsVerticalScrollIndicator={false}
-            keyExtractor={(entries, index) => index}
-            renderItem={({item, index}) => {
-              if (header) {
-                return (
-                  <Card style={styles.flatview}>
-                    <Card.Content style={styles.content}>
-                      <Card.Cover source={require('../../Assets/image.jpeg')} />
-                      <Title style={{fontSize: 20, color: '#248961'}}>
-                        {index}.{item.API}
-                      </Title>
-                      <Paragraph>
-                        <Text style={{fontSize: 16, color: '#987654'}}>
-                          {item.Description}
-                        </Text>
-                      </Paragraph>
-                    </Card.Content>
-                    <Card.Actions style={{alignSelf: 'flex-end'}}>
-                      <Button
-                        mode="contained"
-                        onPress={() =>
-                          navigation.navigate('PurchaseScreen', {
-                            API: item.API,
-                            id: item.Description,
-                          })
-                        }>
-                        {state}
-                      </Button>
-                    </Card.Actions>
-                  </Card>
-                );
-              } else {
-                
-                return (
-                  <Card style={styles.flatview}>
-                    <Card.Content style={styles.content}>
-                      <Card.Cover source={require('../../Assets/book.jpg')} />
-                      <Title style={{color: '#248961', fontSize: 20}}>
-                        {index}.{item.API}
-                      </Title>
-                      <Paragraph>
-                        <Text>{item.Description}</Text>
-                      </Paragraph>
+      <ImageBackground
+        source={require('../../Assets/bg1.jpg')}
+        resizeMode="cover"
+        style={styles.cover}>
+        <Appbar.Header>
+          <Appbar.BackAction onPress={() => navigation.pop()} />
+          <Appbar.Content title="Books" />
+          <Switch
+            trackColor={{false: '#767577', true: '#81b0ff'}}
+            thumbColor={header ? '#f5dd4b' : '#f4f3f4'}
+            onValueChange={toggleSwitch}
+            activeText={'My Collection'}
+            inActiveText={'List of Books'}
+            backgroundInactive={'#fc6600'}
+            switchWidthMultiplier={5}
+            value={header}
+          />
+        </Appbar.Header>
+        <View style={styles.main}>
+          {indicator ? (
+            <ActivityIndicator style={styles.indicator} size={'large'} />
+          ) : (
+            <FlatList
+              style={styles.flatlist}
+              key={header ? 2 : 1}
+              numColumns={header ? 2 : 1}
+              data={books.entries}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={(entries, index) => index}
+              renderItem={({item, index}) => {
+                if (header) {
+                  return (
+                    <Card style={styles.flatview}>
+                      <Card.Content style={styles.content}>
+                        <Card.Cover
+                          source={require('../../Assets/image.jpeg')}
+                        />
+                        <Title style={{fontSize: 20, color: '#248961'}}>
+                          {index}.{item.API}
+                        </Title>
+                        <Paragraph>
+                          <Text style={{fontSize: 16, color: '#987654'}}>
+                            {item.Description}
+                          </Text>
+                        </Paragraph>
+                      </Card.Content>
                       <Card.Actions style={{alignSelf: 'flex-end'}}>
                         <Button
                           mode="contained"
-                          onPress={
-                            () =>
-                            navigation.navigate('PurchaseScreen',
-                               { API: item.API,
-                               id: item.Description, 
-                              // state: {setState}
-                               }
-                            )
+                          onPress={() =>
+                            navigation.navigate('PurchaseScreen', {
+                              API: item.API,
+                              id: item.Description,
+                            })
                           }>
                           {state}
                         </Button>
                       </Card.Actions>
-                    </Card.Content>
-                  </Card>
-                );
-              }
-            }}
-          />
-        )}
-        <Text style={styles.indicator}>{errorMessage}</Text>
-      </View>
+                    </Card>
+                  );
+                } else {
+                  return (
+                    <Card style={styles.flatview}>
+                      <Card.Content style={styles.content}>
+                        <Card.Cover source={require('../../Assets/book.jpg')} />
+                        <Title style={{color: '#248961', fontSize: 20}}>
+                          {index}.{item.API}
+                        </Title>
+                        <Paragraph>
+                          <Text style={{fontSize: 16, color: '#311432'}}>
+                            {item.Description}
+                          </Text>
+                        </Paragraph>
+                        <Card.Actions style={{alignSelf: 'flex-end'}}>
+                          <Button
+                            mode="contained"
+                            onPress={() =>
+                              navigation.navigate('PurchaseScreen', {
+                                API: item.API,
+                                id: item.Description,
+                                // state: {setState}
+                              })
+                            }>
+                            {state}
+                          </Button>
+                        </Card.Actions>
+                      </Card.Content>
+                    </Card>
+                  );
+                }
+              }}
+            />
+          )}
+          <Text style={styles.indicator}>{errorMessage}</Text>
+        </View>
       </ImageBackground>
     </>
   );
@@ -167,7 +166,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     fontSize: 30,
-    color: '#222021'
+    color: '#222021',
   },
   content: {
     flex: 1,
@@ -201,8 +200,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'green',
   },
-  cover:{
-    width: '100%', height: '100%'
+  cover: {
+    width: '100%',
+    height: '100%',
   },
   main: {
     flex: 1,
