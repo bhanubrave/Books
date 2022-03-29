@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { View, StyleSheet, Image, ImageBackground} from 'react-native';
 import ListOfBooks from './ListOfBooks';
-import {TextInput, Button,Text, Appbar} from 'react-native-paper';
+import {TextInput, Button,Text, Appbar, Card} from 'react-native-paper';
 
 
 
@@ -46,7 +46,7 @@ const LoginPage = ({navigation}) => {
     <Appbar.Header>
       <Appbar.Content title="LogIn"  />
     </Appbar.Header>
-    <View  style={styles.view}>
+    <Card  style={styles.view}>
    
    <Image source={require('../../Assets/LogoMain2.png')} resizeMode='contain'
     style={styles.image} /> 
@@ -92,7 +92,7 @@ const LoginPage = ({navigation}) => {
        
       </View>
       
-    </View>
+    </Card>
      </ImageBackground> 
     </>
 };
@@ -120,6 +120,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
     marginVertical: 80,
+    borderRadius: 30,
+    margin: 15,
   },
 button: {
     margin: 20,
