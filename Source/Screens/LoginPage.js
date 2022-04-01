@@ -15,6 +15,8 @@ const LoginPage = ({navigation}) => {
   const [secure, setSecure] = useState(true);
   const [validUser, isValidUser] = useState(true);
   const [validPassword, isValidPassword] = useState(true);
+  const[login, isLogin] = useState(true);
+
   const handleValidUser = (text) =>  {
     if (text !== mailId) {
       isValidUser(false);
@@ -32,11 +34,11 @@ const LoginPage = ({navigation}) => {
 
   const id = () => {
     if (text == mailId && password == passkey ) {
+      isLogin(true);
       navigation.navigate(ListOfBooks);
     }
     else{
-      isValidPassword(false);
-      isValidUser(false);
+      isLogin(false);
     }
   };
 
@@ -89,7 +91,7 @@ const LoginPage = ({navigation}) => {
         <Button mode="contained" onPress={id}>
           LogIn
         </Button>
-       
+       { login ? null : <Text style={styles.buttonerror}>Invalid Data!</Text> }
       </View>
       
     </Card>
@@ -129,10 +131,15 @@ button: {
     alignSelf: 'center'
   },
   error:{
-    color: '#c21807',
+    color: '#C21807',
     marginHorizontal: 10,
     fontSize: 16,
-    fontStyle: 'italic',
+  },
+  buttonerror:{
+    color: '#C21807',
+    fontSize: 16,
+    margin: 5,
+    alignSelf: 'center',
   }
 });
 
